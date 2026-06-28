@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/Navigation";
-import { NeuralFooter } from "@/components/NeuralFooter";
 
 const sans = Plus_Jakarta_Sans({
   variable: "--font-sans",
@@ -55,9 +54,9 @@ export default function RootLayout({
       <body>
         <Navigation />
         {children}
-        <div style={{ padding: '0 16px', maxWidth: 1480, margin: '0 auto', paddingBottom: 32 }}>
-          <NeuralFooter />
-        </div>
+        <footer className="site-footer">
+          Melody Nyarko Amoabeng - AML/KYC/Fraud Analyst
+        </footer>
       </body>
     </html>
   );
