@@ -1,0 +1,40 @@
+- generic [active] [ref=e1] [box=0,0,1425,1085]:
+  - main [ref=e2] [box=16,0,1393,1085]:
+    - region "Professional profile summary" [ref=e3] [box=16,16,496,1053]:
+      - generic [ref=e6] [box=88,68,211,17]: Risk intelligence profile online
+      - generic [ref=e7] [box=59,93,410,621]:
+        - paragraph [ref=e8] [box=59,141,410,17]: AML / KYC / Fraud Analyst
+        - heading "Melody Nyarko Amoabeng" [level=1] [ref=e9] [box=59,172,410,286]
+        - paragraph [ref=e10] [box=59,482,410,232]: Creative AML/KYC/Fraud Analyst with 5 years of financial industry experience across suspicious activity investigations, account review, PEP screening, SAR drafting, high-risk review, transaction monitoring, KYC, negative news screening, and OFAC stripping.
+      - generic "Profile highlights" [ref=e11] [box=59,746,410,210]:
+        - article [ref=e12] [box=59,746,201,106]
+        - article [ref=e15] [box=268,746,201,106]
+        - article [ref=e18] [box=59,860,201,96]
+        - article [ref=e21] [box=268,860,201,96]
+      - generic "Quick contact actions" [ref=e24] [box=59,974,410,52]:
+        - link "Email profile" [ref=e25] [cursor=pointer] [box=59,974,234,52]:
+          - /url: mailto:mna@melodyamoabeng.com
+        - link "Call direct" [ref=e30] [cursor=pointer] [box=301,974,168,52]:
+          - /url: tel:+14046631569
+    - region "Melody profile engine" [ref=e33] [box=528,16,881,1053]:
+      - generic [ref=e34] [box=559,47,819,118]:
+        - generic [ref=e35] [box=559,47,703,118]
+        - generic "Active module 1 of 5" [ref=e38] [box=1282,47,96,96]
+      - navigation "Profile sections" [ref=e41] [box=553,187,831,62]:
+        - button "Bio Engine" [pressed] [ref=e42] [cursor=pointer] [box=560,194,159,48]
+        - button "Experience Log" [ref=e43] [cursor=pointer] [box=724,194,159,48]
+        - button "Risk Stack" [ref=e44] [cursor=pointer] [box=889,194,159,48]
+        - button "Education Vault" [ref=e45] [cursor=pointer] [box=1054,194,159,48]
+        - button "Contact Node" [ref=e46] [cursor=pointer] [box=1218,194,159,48]
+      - region "Complete bio" [ref=e48] [box=559,261,819,696]:
+        - article [ref=e49] [box=559,261,819,315]
+        - article [ref=e56] [box=559,586,405,371]
+        - article [ref=e67] [box=973,586,405,371]
+      - generic "Engine capabilities" [ref=e78] [box=559,969,819,34]:
+        - generic [ref=e79] [box=559,969,170,34]
+        - generic [ref=e82] [box=736,969,137,34]
+        - generic [ref=e85] [box=881,969,151,34]
+        - generic [ref=e88] [box=1038,969,151,34]
+  - button "Open Next.js Dev Tools" [ref=e96] [cursor=pointer] [box=22,946,32,32]:
+    - img [ref=e97] [box=22,942,40,40]
+  - alert [ref=e100] [box=-1,1084,1,1]

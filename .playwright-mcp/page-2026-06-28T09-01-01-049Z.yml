@@ -1,0 +1,167 @@
+- generic [ref=e1]:
+  - main [ref=e2]:
+    - region "Professional profile summary" [ref=e3]:
+      - generic [ref=e6]: Risk intelligence profile online
+      - generic [ref=e7]:
+        - paragraph [ref=e8]: AML / KYC / Fraud Analyst
+        - heading "Melody Nyarko Amoabeng" [level=1] [ref=e9]
+        - paragraph [ref=e10]: Creative AML/KYC/Fraud Analyst with 5 years of financial industry experience across suspicious activity investigations, account review, PEP screening, SAR drafting, high-risk review, transaction monitoring, KYC, negative news screening, and OFAC stripping.
+      - generic "Profile highlights" [ref=e11]:
+        - article [ref=e12]:
+          - strong [ref=e13]: 5+
+          - generic [ref=e14]: Years in financial industry
+        - article [ref=e15]:
+          - strong [ref=e16]: AML/KYC
+          - generic [ref=e17]: Core domain
+        - article [ref=e18]:
+          - strong [ref=e19]: Fraud
+          - generic [ref=e20]: Current focus
+        - article [ref=e21]:
+          - strong [ref=e22]: Ready
+          - generic [ref=e23]: SAR workflow
+      - generic "Quick contact actions" [ref=e24]:
+        - link "Email profile" [ref=e25] [cursor=pointer]:
+          - /url: mailto:mna@melodyamoabeng.com
+          - img [ref=e26]
+          - text: Email profile
+          - img [ref=e28]
+        - link "Call direct" [ref=e30] [cursor=pointer]:
+          - /url: tel:+14046631569
+          - img [ref=e31]
+          - text: Call direct
+    - region "Melody profile engine" [ref=e33]:
+      - generic [ref=e34]:
+        - generic [ref=e35]:
+          - paragraph [ref=e36]: Profile engine
+          - heading "Compliance intelligence interface" [level=2] [ref=e37]
+        - generic "Active module 2 of 5" [ref=e101]:
+          - generic [ref=e39]: "02"
+          - generic [ref=e40]: / 05
+      - navigation "Profile sections" [ref=e41]:
+        - button "Bio" [ref=e42] [cursor=pointer]
+        - button "Work" [active] [pressed] [ref=e43] [cursor=pointer]
+        - button "Skills" [ref=e44] [cursor=pointer]
+        - button "Study" [ref=e45] [cursor=pointer]
+        - button "Contact" [ref=e46] [cursor=pointer]
+      - region "Experience" [ref=e102]:
+        - article [ref=e103]:
+          - generic [ref=e104]:
+            - generic [ref=e105]:
+              - paragraph [ref=e106]: Jan 2025 - Current
+              - heading "AML/Fraud Analyst" [level=3] [ref=e107]
+            - generic [ref=e108]:
+              - img [ref=e109]
+              - generic [ref=e111]: PNC Bank
+          - paragraph [ref=e112]:
+            - img [ref=e113]
+            - text: Newark, NJ
+          - list [ref=e115]:
+            - listitem [ref=e116]:
+              - img [ref=e117]
+              - generic [ref=e119]: Investigates suspicious activity from account surveillance and branch escalations.
+            - listitem [ref=e120]:
+              - img [ref=e121]
+              - generic [ref=e123]: Analyzes account takeover, dispute fraud, and identity theft using Looker, Unit21, Salesforce, LexisNexis, and Zendesk.
+            - listitem [ref=e124]:
+              - img [ref=e125]
+              - generic [ref=e127]: Conducts detailed suspicious activity investigations and drafts SARs when risk cannot be mitigated.
+            - listitem [ref=e128]:
+              - img [ref=e129]
+              - generic [ref=e131]: Works with internal groups to align SAR narratives and investigation requirements.
+            - listitem [ref=e132]:
+              - img [ref=e133]
+              - generic [ref=e135]: Uses Looker, Zendesk, Unit21, RDC, Whatismyipaddress, and Documentum for objective, timely fraud investigations.
+            - listitem [ref=e136]:
+              - img [ref=e137]
+              - generic [ref=e139]: Prepares SAR packages for regulatory compliance manager review before filing.
+            - listitem [ref=e140]:
+              - img [ref=e141]
+              - generic [ref=e143]: Reviews and updates code of conduct and company policy material.
+        - article [ref=e144]:
+          - generic [ref=e145]:
+            - generic [ref=e146]:
+              - paragraph [ref=e147]: Feb 2023 - Dec 2024
+              - heading "AML/KYC Analyst" [level=3] [ref=e148]
+            - generic [ref=e149]:
+              - img [ref=e150]
+              - generic [ref=e152]: Chase Bank
+          - paragraph [ref=e153]:
+            - img [ref=e154]
+            - text: Belair, MD
+          - list [ref=e156]:
+            - listitem [ref=e157]:
+              - img [ref=e158]
+              - generic [ref=e160]: Applied strong knowledge of current fraud issues, trends, and regulatory requirements.
+            - listitem [ref=e161]:
+              - img [ref=e162]
+              - generic [ref=e164]: Monitored institutional transactions and reconciled customer accounts to identify fraud.
+            - listitem [ref=e165]:
+              - img [ref=e166]
+              - generic [ref=e168]: Supported new client onboarding and renewals using RDC, Actimize, World-Check, Clink, and LexisNexis.
+            - listitem [ref=e169]:
+              - img [ref=e170]
+              - generic [ref=e172]: Escalated unusual activity to the Financial Intelligence Unit and supported potential risk escalation.
+            - listitem [ref=e173]:
+              - img [ref=e174]
+              - generic [ref=e176]: Maintained detailed client records for second-level review.
+            - listitem [ref=e177]:
+              - img [ref=e178]
+              - generic [ref=e180]: Identified fraud patterns and anomalies across large quantities of data.
+            - listitem [ref=e181]:
+              - img [ref=e182]
+              - generic [ref=e184]: Prepared clear reports and recommendations for fraud, money laundering, and compliance investigations.
+            - listitem [ref=e185]:
+              - img [ref=e186]
+              - generic [ref=e188]: Supported risk assessments, internal control reviews, and fraud prevention framework checks.
+            - listitem [ref=e189]:
+              - img [ref=e190]
+              - generic [ref=e192]: Prepared fraud prevention, AML, and compliance awareness materials for client workshops.
+        - article [ref=e193]:
+          - generic [ref=e194]:
+            - generic [ref=e195]:
+              - paragraph [ref=e196]: Jan 2021 - Jan 2023
+              - heading "AML/KYC Analyst" [level=3] [ref=e197]
+            - generic [ref=e198]:
+              - img [ref=e199]
+              - generic [ref=e201]: Access Bank
+          - paragraph [ref=e202]:
+            - img [ref=e203]
+            - text: Accra, Ghana
+          - list [ref=e205]:
+            - listitem [ref=e206]:
+              - img [ref=e207]
+              - generic [ref=e209]: Performed independent checks of KYC information provided by front office teams.
+            - listitem [ref=e210]:
+              - img [ref=e211]
+              - generic [ref=e213]: Implemented CIP and Customer Acceptance Policy requirements.
+            - listitem [ref=e214]:
+              - img [ref=e215]
+              - generic [ref=e217]: Applied KYC guidelines to prevent funds from being used for fraudulent purposes.
+            - listitem [ref=e218]:
+              - img [ref=e219]
+              - generic [ref=e221]: Resolved onboarding issues and reviewed AML system-generated transaction alerts.
+            - listitem [ref=e222]:
+              - img [ref=e223]
+              - generic [ref=e225]: Analyzed client documentation and negative news to determine client risk profiles.
+            - listitem [ref=e226]:
+              - img [ref=e227]
+              - generic [ref=e229]: Reviewed customer financial data to determine risk level for extending credit.
+            - listitem [ref=e230]:
+              - img [ref=e231]
+              - generic [ref=e233]: Liaised with branch managers on customer satisfaction and KYC objective guidance.
+      - generic "Engine capabilities" [ref=e78]:
+        - generic [ref=e79]:
+          - img [ref=e80]
+          - text: Suspicious activity
+        - generic [ref=e82]:
+          - img [ref=e83]
+          - text: KYC onboarding
+        - generic [ref=e85]:
+          - img [ref=e86]
+          - text: Pattern analysis
+        - generic [ref=e88]:
+          - img [ref=e89]
+          - text: Banking controls
+  - button "Open Next.js Dev Tools" [ref=e96] [cursor=pointer]:
+    - img [ref=e97]
+  - alert [ref=e100]

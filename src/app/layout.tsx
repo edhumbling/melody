@@ -1,12 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Bodoni_Moda, Plus_Jakarta_Sans, Rye } from "next/font/google";
-import { MotionSystem } from "@/components/MotionSystem";
-import { SiteFooter } from "@/components/SiteFooter";
-import { SiteHeader } from "@/components/SiteHeader";
-import { CustomCursor } from "@/components/CustomCursor";
-import { AmbientSoundController } from "@/components/AmbientSoundController";
-import { site } from "@/lib/site-content";
+import { JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import { Navigation } from "@/components/Navigation";
+import { NeuralFooter } from "@/components/NeuralFooter";
 
 const sans = Plus_Jakarta_Sans({
   variable: "--font-sans",
@@ -14,45 +10,33 @@ const sans = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const editorial = Bodoni_Moda({
-  variable: "--font-editorial",
+const mono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
   display: "swap",
 });
 
-const reeler = Rye({
-  variable: "--font-reeler",
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-});
+const name = "Melody Nyarko Amoabeng";
+const description =
+  "AML, KYC, and Fraud Analyst profile for Melody Nyarko Amoabeng, covering financial crime investigations, SAR drafting, transaction monitoring, sanctions, and risk review experience.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://melodyamoabeng.com"),
   title: {
-    default: `${site.name} - Personal Site`,
-    template: `%s - ${site.name}`,
+    default: `${name} - AML/KYC/Fraud Analyst`,
+    template: `%s - ${name}`,
   },
-  description: site.description,
+  description,
   openGraph: {
-    title: `${site.name} - Personal Site`,
-    description: site.description,
+    title: `${name} - AML/KYC/Fraud Analyst`,
+    description,
     url: "https://melodyamoabeng.com",
-    siteName: site.name,
-    images: [
-      {
-        url: "/melody-og.svg",
-        width: 1200,
-        height: 630,
-        alt: `${site.name} monogram share preview`,
-      },
-    ],
+    siteName: name,
   },
   twitter: {
-    card: "summary_large_image",
-    title: `${site.name} - Personal Site`,
-    description: site.description,
-    images: ["/melody-og.svg"],
+    card: "summary",
+    title: `${name} - AML/KYC/Fraud Analyst`,
+    description,
   },
 };
 
@@ -67,22 +51,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${sans.variable} ${editorial.variable} ${reeler.variable} h-full antialiased`}
-    >
+    <html lang="en" data-scroll-behavior="smooth" className={`${sans.variable} ${mono.variable}`}>
       <body>
-        <div className="ambient-glow-wrap">
-          <div className="ambient-glow-orb orb-1" />
-          <div className="ambient-glow-orb orb-2" />
-          <div className="ambient-glow-orb orb-3" />
-        </div>
-        <CustomCursor />
-        <AmbientSoundController />
-        <MotionSystem />
-        <SiteHeader />
+        <Navigation />
         {children}
-        <SiteFooter />
+        <div style={{ padding: '0 16px', maxWidth: 1480, margin: '0 auto', paddingBottom: 32 }}>
+          <NeuralFooter />
+        </div>
       </body>
     </html>
   );

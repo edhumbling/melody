@@ -1,195 +1,325 @@
-import Link from "next/link";
-import { ArrowRight, CompassRose, Feather, Sparkle, Waveform } from "@/components/Icons";
-import { Reveal } from "@/components/Reveal";
-import { SignatureMark } from "@/components/SignatureMark";
+"use client";
+
+import { useMemo, useState } from "react";
+import { IdentityPanel } from "@/components/IdentityPanel";
 import {
-  journalEntries,
-  offerings,
-  principles,
-  projects,
-} from "@/lib/site-content";
+  Bank,
+  Certificate,
+  CheckCircle,
+  FileMagnifyingGlass,
+  Fingerprint,
+  GraduationCap,
+  ListChecks,
+  MapPin,
+  ShieldCheck,
+  Target,
+  UserFocus,
+} from "@phosphor-icons/react";
+
+type TabId = "bio" | "experience" | "skills" | "education" | "contact";
+
+const tabs: Array<{ id: TabId; label: string; short: string }> = [
+  { id: "bio", label: "Bio Engine", short: "Bio" },
+  { id: "experience", label: "Experience Log", short: "Work" },
+  { id: "skills", label: "Risk Stack", short: "Skills" },
+  { id: "education", label: "Education Vault", short: "Study" },
+  { id: "contact", label: "Contact Node", short: "Contact" },
+];
+
+const experience = [
+  {
+    role: "AML/Fraud Analyst",
+    company: "PNC Bank",
+    place: "Newark, NJ",
+    range: "Jan 2025 - Current",
+    tone: "hot",
+    points: [
+      "Investigates suspicious activity from account surveillance and branch escalations.",
+      "Analyzes account takeover, dispute fraud, and identity theft using Looker, Unit21, Salesforce, LexisNexis, and Zendesk.",
+      "Conducts detailed suspicious activity investigations and drafts SARs when risk cannot be mitigated.",
+      "Works with internal groups to align SAR narratives and investigation requirements.",
+      "Reviews and updates code of conduct and company policy material.",
+    ],
+  },
+  {
+    role: "AML/KYC Analyst",
+    company: "Chase Bank",
+    place: "Belair, MD",
+    range: "Feb 2023 - Dec 2024",
+    tone: "blue",
+    points: [
+      "Monitored institutional transactions and reconciled customer accounts to identify fraud.",
+      "Supported new client onboarding and renewals using RDC, Actimize, World-Check, Clink, and LexisNexis.",
+      "Escalated unusual activity to the Financial Intelligence Unit and supported potential risk escalation.",
+      "Supported risk assessments, internal control reviews, and fraud prevention framework checks.",
+    ],
+  },
+  {
+    role: "AML/KYC Analyst",
+    company: "Access Bank",
+    place: "Accra, Ghana",
+    range: "Jan 2021 - Jan 2023",
+    tone: "green",
+    points: [
+      "Performed independent checks of KYC information provided by front office teams.",
+      "Implemented CIP and Customer Acceptance Policy requirements.",
+      "Applied KYC guidelines to prevent funds from being used for fraudulent purposes.",
+      "Liaised with branch managers on customer satisfaction and KYC objective guidance.",
+    ],
+  },
+];
+
+const skills = [
+  "Analytical review",
+  "Risk mitigation",
+  "Banking regulations",
+  "Due diligence",
+  "Investigation",
+  "Fraud analysis",
+  "SAR drafting",
+  "Team collaboration",
+  "Sanctions compliance",
+  "Information verification",
+  "Compliance strength",
+  "Work ethic",
+  "Operational support",
+  "Data documentation",
+  "PEP screening",
+  "Negative news screening",
+  "OFAC stripping",
+  "Transaction monitoring",
+];
+
+const education = [
+  {
+    title: "AMLCFTx: AML/CFT Risk-Based Supervision of Financial Institutions",
+    source: "International Monetary Fund, IMFx",
+    date: "05/2026",
+    type: "Certification",
+  },
+  {
+    title: "LEAD1x: Exercising Leadership: Foundation Principles",
+    source: "Harvard University, HarvardX",
+    date: "05/2025",
+    type: "Leadership",
+  },
+  {
+    title: "High School Diploma",
+    source: "Kumasi Girls Senior High School, Ghana",
+    date: "05/2016",
+    type: "Education",
+  },
+];
+
+function TabButton({
+  active,
+  label,
+  short,
+  onClick,
+}: {
+  active: boolean;
+  label: string;
+  short: string;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      className={`tab-button ${active ? "is-active" : ""}`}
+      onClick={onClick}
+      aria-pressed={active}
+    >
+      <span className="tab-label">{label}</span>
+      <span className="tab-short">{short}</span>
+    </button>
+  );
+}
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState<TabId>("bio");
+
+  const activeIndex = useMemo(
+    () => tabs.findIndex((tab) => tab.id === activeTab) + 1,
+    [activeTab],
+  );
+
+  // Dynamic JS listener to update CSS variables for the mouse hover lighting effect
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty("--mouse-x", `${x}px`);
+    card.style.setProperty("--mouse-y", `${y}px`);
+  };
+
   return (
-    <main>
-      {/* Immersive Hero Section */}
-      <section className="hero-section">
-        <div className="hero-copy">
-          <Reveal>
-            <p className="reeler-line">Creative Presence</p>
-            <h1 className="font-serif">
-              A digital home built with quiet force and unmistakable rhythm.
-            </h1>
-            <p className="hero-deck">
-              A premium, refined digital space designed for narrative, selected work, writing, and
-              direct connection. Crafted to feel warm, high-contrast, and deeply memorable.
-            </p>
-            <div className="hero-actions">
-              <Link className="button-primary" href="/work">
-                Explore the work <ArrowRight size={15} weight="bold" />
-              </Link>
-              <Link className="button-secondary" href="/about">
-                Meet Melody
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-        <Reveal delay={0.12} className="hero-art-wrap">
-          <div className="hero-art">
-            <span className="ambient-ring" />
-            <SignatureMark className="hero-mark shadow-2xl" />
-            
-            {/* Soft interactive floating micro-cockpits */}
-            <div className="sound-card top group">
-              <Waveform size={18} weight="duotone" className="text-emerald-400 group-hover:animate-pulse" />
-              <span>Quiet Rhythm</span>
-            </div>
-            
-            <div className="sound-card bottom group">
-              <Sparkle size={16} weight="duotone" className="text-amber-400 group-hover:scale-125 transition-transform" />
-              <span>Creative Signal</span>
-            </div>
-          </div>
-        </Reveal>
-      </section>
+    <main className="engine-shell">
+      <IdentityPanel />
 
-      {/* Dynamic Infinite Marquee Band */}
-      <section className="marquee-band" aria-label="Core focus areas">
-        <div className="flex animate-[glide_35s_linear_infinite] whitespace-nowrap gap-12">
-          {offerings.concat(offerings).concat(offerings).map((item, index) => (
-            <span key={`${item}-${index}`}>{item}</span>
-          ))}
-        </div>
-      </section>
-
-      {/* Core Philosophy Section */}
-      <section className="split-section">
-        <Reveal>
-          <p className="section-kicker">Core Philosophy</p>
-          <h2 className="font-serif text-white/95">
-            Built for true recognition, not fleeting noise.
-          </h2>
-          <p className="text-white/50 text-sm leading-relaxed mt-6 max-w-sm">
-            We reject the visual hyper-activity of modern templates. Spacing, typography, and structural
-            rhythm speak before any words are read.
-          </p>
-        </Reveal>
-        <div className="principle-list">
-          {principles.map((principle, index) => (
-            <Reveal key={principle} delay={index * 0.08}>
-              <article className="group">
-                <span className="font-mono text-xs text-amber-400">0{index + 1}</span>
-                <p className="font-serif">{principle}</p>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* Selected Work Bento Grid */}
-      <section className="work-preview">
-        <div className="section-heading-row">
+      <section className="control-panel" aria-label="Melody profile engine">
+        <header className="engine-header">
           <div>
-            <p className="section-kicker">Selected Work</p>
-            <h2 className="font-serif">Archival starting points of a public body.</h2>
+            <p className="eyebrow">DIAGNOSTICS BOARD</p>
+            <h2 style={{ fontSize: "2rem", fontWeight: 800, marginTop: 8 }}>Compliance Intelligence Node</h2>
           </div>
-          <Link href="/work" className="text-link">
-            View all works <ArrowRight size={14} />
-          </Link>
-        </div>
+          <div className="engine-readout" aria-label={`Active module ${activeIndex} of ${tabs.length}`}>
+            <span>0{activeIndex}</span>
+            <small>/ 05</small>
+          </div>
+        </header>
 
-        <div className="project-grid">
-          {projects.map((project, index) => {
-            const isLarge = index === 0;
-            return (
-              <Reveal
-                key={project.title}
-                delay={index * 0.08}
-                className={isLarge ? "md:col-span-2" : "md:col-span-1"}
-              >
-                <Link href={`/work/${project.slug}`} className="block h-full group">
-                  <article className={`project-card h-full flex flex-col justify-between ${
-                    isLarge ? "bg-gradient-to-br from-neutral-950 via-neutral-900/60 to-neutral-950 border-white/8" : ""
-                  }`}>
-                    <div>
-                      <div className="flex items-center justify-between">
-                        <div className="project-index">{project.year}</div>
-                        <span className="text-emerald-400/90 text-[10px] tracking-widest uppercase font-bold">
-                          {project.type}
-                        </span>
-                      </div>
-                      <h3 className="font-serif mt-6 text-3xl font-light text-white group-hover:text-emerald-300 transition-colors duration-300">
-                        {project.title}
-                      </h3>
-                      <p className="text-white/60 text-sm mt-3 leading-relaxed max-w-md">
-                        {project.summary}
-                      </p>
-                    </div>
-                    <div className="mt-8 pt-4 border-t border-white/5 flex items-center justify-between text-[11px] text-white/40 group-hover:text-white transition-colors duration-300">
-                      <span className="uppercase tracking-wider font-bold">Explore case study</span>
-                      <ArrowRight size={14} className="transform group-hover:translate-x-1.5 transition-transform" />
-                    </div>
-                  </article>
-                </Link>
-              </Reveal>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* Luxury Editorial Quote Strip */}
-      <section className="editorial-strip">
-        <Reveal>
-          <div className="group">
-            <CompassRose
-              size={42}
-              weight="thin"
-              className="mx-auto text-amber-300 transition-transform duration-700 group-hover:rotate-[90deg]"
+        <nav className="tab-strip" aria-label="Profile sections">
+          {tabs.map((tab) => (
+            <TabButton
+              key={tab.id}
+              active={activeTab === tab.id}
+              label={tab.label}
+              short={tab.short}
+              onClick={() => setActiveTab(tab.id)}
             />
-          </div>
-          <h2 className="font-serif text-white max-w-2xl mx-auto leading-tight mt-6 text-3xl md:text-4xl font-light">
-            Every page is meticulously structured for timeless future growth.
-          </h2>
-          <p className="text-white/55 mt-4 max-w-xl mx-auto text-base">
-            Easily integrate biographical notes, full case studies, talks, curated essays, and client
-            collaborations without ever redesigning the underlying system.
-          </p>
-        </Reveal>
-      </section>
-
-      {/* Journal Preview Section */}
-      <section className="journal-preview">
-        <div className="section-heading-row">
-          <div>
-            <p className="section-kicker">Journal Notes</p>
-            <h2 className="font-serif">Slow-form writing that breathes living energy.</h2>
-          </div>
-          <Link href="/journal" className="text-link">
-            Read entire archive <ArrowRight size={14} />
-          </Link>
-        </div>
-
-        <div className="journal-list">
-          {journalEntries.slice(0, 2).map((entry, index) => (
-            <Reveal key={entry.title} delay={index * 0.06}>
-              <Link href={`/journal/${entry.slug}`} className="block">
-                <article className="group cursor-pointer">
-                  <Feather size={20} weight="thin" className="mt-1.5 text-emerald-400 group-hover:scale-110 transition-transform" />
-                  <div>
-                    <span className="text-[10px] text-amber-400 font-bold tracking-widest block mb-1">
-                      {entry.date}
-                    </span>
-                    <h3 className="font-serif text-xl font-light group-hover:text-emerald-300 transition-colors duration-300">
-                      {entry.title}
-                    </h3>
-                    <p className="text-white/55 text-sm mt-2 leading-relaxed max-w-3xl">
-                      {entry.excerpt}
-                    </p>
-                  </div>
-                </article>
-              </Link>
-            </Reveal>
           ))}
+        </nav>
+
+        <div className="engine-screen">
+          {activeTab === "bio" ? (
+            <section className="module-grid" aria-label="Complete bio">
+              <article className="module-panel wide" onMouseMove={handleMouseMove}>
+                <ShieldCheck size={30} style={{ color: "var(--green)" }} />
+                <p className="panel-kicker">Professional Summary</p>
+                <h3>Financial-crime surveillance execution.</h3>
+                <p>
+                  Melody is dedicated and analytical, equipped with a rigorous work ethic and motivation to succeed within security surveillance settings. Highly proficient in data synthesis, compliance reviews, and structured investigation protocols across diverse banking compliance layers.
+                </p>
+              </article>
+
+              <article className="module-panel" onMouseMove={handleMouseMove}>
+                <Fingerprint size={28} style={{ color: "var(--cyan)" }} />
+                <p className="panel-kicker">Core Lanes</p>
+                <ul className="compact-list">
+                  <li>Anti-Money Laundering</li>
+                  <li>Fraud Analysis</li>
+                  <li>Account Surveillance</li>
+                  <li>High-Risk Review</li>
+                </ul>
+              </article>
+
+              <article className="module-panel" onMouseMove={handleMouseMove}>
+                <FileMagnifyingGlass size={28} style={{ color: "var(--cyan)" }} />
+                <p className="panel-kicker">Regulatory Outputs</p>
+                <ul className="compact-list">
+                  <li>SAR Narrative Drafting</li>
+                  <li>PEP Screening</li>
+                  <li>Negative News Monitoring</li>
+                  <li>OFAC Regulatory Stripping</li>
+                </ul>
+              </article>
+            </section>
+          ) : null}
+
+          {activeTab === "experience" ? (
+            <section className="experience-stack" aria-label="Experience">
+              {experience.map((job) => (
+                <article key={`${job.company}-${job.range}`} className="experience-card">
+                  <div className="experience-topline">
+                    <div>
+                      <p className="panel-kicker" style={{ color: "var(--cyan)" }}>{job.range}</p>
+                      <h3 style={{ fontSize: "1.4rem", margin: "6px 0", color: "#fff" }}>{job.role}</h3>
+                    </div>
+                    <div className="company-chip">
+                      <Bank size={14} />
+                      <span>{job.company}</span>
+                    </div>
+                  </div>
+                  <p className="location-line">
+                    <MapPin size={14} />
+                    {job.place}
+                  </p>
+                  <ul className="evidence-list">
+                    {job.points.map((point) => (
+                      <li key={point}>
+                        <CheckCircle size={14} />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </section>
+          ) : null}
+
+          {activeTab === "skills" ? (
+            <section className="skills-module" aria-label="Skills">
+              <div style={{ display: "flex", gap: 12 }}>
+                <ListChecks size={24} style={{ color: "var(--cyan)" }} />
+                <div>
+                  <p className="panel-kicker">Operating Stack</p>
+                  <h3 style={{ fontSize: "1.4rem", color: "#fff", marginTop: 4 }}>Risk verification, regulatory screening, and escalations.</h3>
+                </div>
+              </div>
+              <div className="skill-cloud">
+                {skills.map((skill, index) => (
+                  <span key={skill} className={index % 3 === 0 ? "hot" : index % 3 === 1 ? "blue" : "green"}>
+                    {skill}
+                  </span>
+                ))}
+              </div>
+              <div className="tool-rail">
+                {["Looker", "Unit21", "Salesforce", "LexisNexis", "Zendesk", "RDC", "Actimize", "World-Check", "Documentum"].map(
+                  (tool) => (
+                    <span key={tool}>{tool}</span>
+                  ),
+                )}
+              </div>
+            </section>
+          ) : null}
+
+          {activeTab === "education" ? (
+            <section className="education-grid" aria-label="Education and certifications">
+              {education.map((item) => (
+                <article key={item.title} className="education-card">
+                  <div className="education-icon">
+                    {item.type === "Education" ? (
+                      <GraduationCap size={24} />
+                    ) : (
+                      <Certificate size={24} />
+                    )}
+                  </div>
+                  <p className="panel-kicker" style={{ marginTop: 16 }}>{item.date} / {item.type}</p>
+                  <h3 style={{ fontSize: "1.2rem", margin: "8px 0", color: "#fff" }}>{item.title}</h3>
+                  <p style={{ color: "var(--text-secondary)", fontSize: "0.85rem" }}>{item.source}</p>
+                </article>
+              ))}
+            </section>
+          ) : null}
+
+          {activeTab === "contact" ? (
+            <section className="contact-module" aria-label="Contact">
+              <article className="contact-card primary">
+                <UserFocus size={30} style={{ color: "var(--cyan)" }} />
+                <p className="panel-kicker">Encrypted Connection</p>
+                <h3 style={{ color: "#fff", fontSize: "1.4rem" }}>Establish secure communications.</h3>
+                <div className="contact-links">
+                  <a href="tel:+14046631569">
+                    (404) 663-1569
+                  </a>
+                  <a href="mailto:mna@melodyamoabeng.com">
+                    mna@melodyamoabeng.com
+                  </a>
+                </div>
+              </article>
+
+              <article className="contact-card">
+                <Target size={30} style={{ color: "var(--cyan)" }} />
+                <p className="panel-kicker">Deployment Priorities</p>
+                <ul className="compact-list" style={{ border: "none" }}>
+                  <li>AML / KYC Analytics</li>
+                  <li>Suspicious Activity Screening</li>
+                  <li>FIU Auditing & Compliance</li>
+                </ul>
+              </article>
+            </section>
+          ) : null}
         </div>
       </section>
     </main>
