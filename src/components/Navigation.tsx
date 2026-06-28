@@ -59,6 +59,7 @@ export function Navigation() {
           className={`menu-button ${isOpen ? "is-open" : ""}`}
           aria-label="Toggle menu"
           aria-expanded={isOpen}
+          aria-controls="mobile-menu"
           onClick={() => setIsOpen((open) => !open)}
         >
           <span className="hamburger-box">
@@ -67,7 +68,11 @@ export function Navigation() {
         </button>
       </header>
 
-      <div className={`mobile-nav ${isOpen ? "is-open" : ""}`} aria-label="Mobile navigation">
+      <div id="mobile-menu" className={`mobile-nav ${isOpen ? "is-open" : ""}`} aria-label="Mobile navigation">
+        <div className="mobile-nav-panel" aria-hidden="true">
+          <p>MELODY NYARKO AMOABENG</p>
+          <h2>AML/KYC/Fraud Analyst</h2>
+        </div>
         <div className="mobile-nav-links">
           {links.map((link) => (
             <Link key={link.href} href={link.href} onClick={() => setIsOpen(false)}>
@@ -82,4 +87,3 @@ export function Navigation() {
     </>
   );
 }
-
