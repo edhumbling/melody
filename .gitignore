@@ -46,3 +46,10 @@ next-env.d.ts
 /dev-out.log
 /qa-screenshots/
 
+# screenshots & design references
+*.png
+*-snapshot.md
+
+# playwright artifacts
+.playwright-mcp/
+
